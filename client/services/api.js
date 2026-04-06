@@ -43,6 +43,7 @@ class ApiService {
     const params = new URLSearchParams();
     if (filters.status) params.append('status', filters.status);
     if (filters.category) params.append('category', filters.category);
+    if (filters.search) params.append('search', filters.search);
     
     const query = params.toString() ? `?${params}` : '';
     return this.request(`/articles${query}`);

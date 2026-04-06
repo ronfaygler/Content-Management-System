@@ -27,7 +27,7 @@ export const useArticles = (filters = {}) => {
 
   useEffect(() => {
     fetchArticles();
-  }, []);
+  }, [filters]); // Add filters as dependency to re-fetch when filters change
 
   const createArticle = async (articleData) => {
     try {
