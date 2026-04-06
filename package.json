@@ -1,5 +1,5 @@
 {
-  "name": "cemento",
+  "name": "content-management-system",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -7,7 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "git:init": "git init && git add . && git commit -m \"Initial commit: Project setup with API specs\"",
+    "git:branch": "git checkout -b",
+    "git:commit": "git add . && git commit -m",
+    "git:push": "git push origin",
+    "git:merge": "git merge",
+    "git:status": "git status",
+    "git:log": "git log --oneline -10"
   },
   "dependencies": {
     "react": "^18.2.0",
