@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useArticles } from '../hooks/useArticles';
 import { useAuth } from '../context/AuthContext';
 
-const ArticleList = ({ filters = {}, onArticleSelect }) => {
+const ArticleList = ({ filters = {}, onArticleSelect, onEditArticle }) => {
   const { articles, loading, error, deleteArticle, submitArticle, publishArticle, rejectArticle } = useArticles(filters);
-  const { isAuthor, isEditor } = useAuth();
+  const { isAuthor, isEditor, user } = useAuth();
   const [actionLoading, setActionLoading] = useState({});
 
   if (loading) {
@@ -217,6 +217,16 @@ const ArticleList = ({ filters = {}, onArticleSelect }) => {
                   >
                     👁️ View Details
                   </button>
+                  
+                  {isAuthor() && article.authorId === user?.id && (article.status === 'draft' || article.status === 'rejected') && (
+                    <button 
+                      onClick={() => onEditArticle(article)}
+                      className="btn btn-secondary"
+                      disabled={isLoading}
+                    >
+                      ✏️ Edit
+                    </button>
+                  )}
                   
                   {isAuthor() && article.status === 'draft' && (
                     <>

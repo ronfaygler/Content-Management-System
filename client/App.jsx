@@ -65,6 +65,7 @@ function AppContent() {
             <ArticleList 
               filters={filters}
               onArticleSelect={handleArticleSelect}
+              onEditArticle={handleEditArticle}
             />
           )}
 
