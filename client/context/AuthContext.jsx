@@ -22,7 +22,14 @@ export const AuthProvider = ({ children }) => {
   const isAuthor = () => userRole === 'author';
   const isEditor = () => userRole === 'editor';
 
+  // Create user object with appropriate id based on role
+  const user = {
+    role: userRole,
+    id: userRole === 'author' ? 'author1' : 'editor1'
+  };
+
   const value = {
+    user,
     userRole,
     switchRole,
     isAuthor,
