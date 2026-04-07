@@ -6,11 +6,12 @@ const router = express.Router();
 
 // GET /api/articles - List all articles with filtering
 router.get('/', authenticate, (req, res) => {
-  const { status, category } = req.query;
+  const { status, category, search } = req.query;
   const filters = {};
   
   if (status) filters.status = status;
   if (category) filters.category = category;
+  if (search) filters.search = search;
   
   const articles = articleData.findAll(filters);
   res.json(articles);
